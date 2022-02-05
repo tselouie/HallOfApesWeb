@@ -119,8 +119,32 @@ const App = () => {
     }
   }
 
-  const mintNft = () => {
-    setIsClaiming(true);
+  const mintNft = async () => {
+  
+    // try {
+    //   const { ethereum } = window;
+
+    //   if (ethereum) {
+    //     const provider = new ethers.providers.Web3Provider(ethereum);
+    //     const signer = provider.getSigner();
+    //     const connectedContract = new ethers.Contract(contractAddress, contractABI, signer);
+
+    //     console.log("Going to pop wallet now to pay gas...")
+    //     //mint NFT
+    //     // let nftTxn = await connectedContract.makeAnEpicNFT();
+
+    //     console.log("Mining...please wait.")
+    //     setIsClaiming(true);
+    //     // await nftTxn.wait();
+    //     // console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
+    //     setIsClaiming(false);
+
+    //   } else {
+    //     console.log("Ethereum object doesn't exist!");
+    //   }
+    // } catch (error) {
+    //   console.log(error)
+    // }
 
   }
 
