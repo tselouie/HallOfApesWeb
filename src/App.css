@@ -1,20 +1,41 @@
+:root {
+  --color-purple:  #7a18ec;
+}
+
+img.circle {
+  border-radius: 50%;
+}
 .mainContainer {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 64px;
+  margin-top: 64px;  
+  background-color: black;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: solid 3px white;
+  border-bottom: solid 3px white;
 }
+.center { 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;}
 
 .dataContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
+  align-items: center;
+
+  color: white;
 }
 
 .header {
   text-align: center;
-  font-size: 32px;
+  justify-content: center;
+  font-size: 64px;
   font-weight: 600;
 }
 
@@ -24,11 +45,37 @@
   margin-top: 16px;
 }
 
-.waveButton {
-  cursor: pointer;
-  margin-top: 16px;
-  padding: 8px;
-  border: 0;
+
+.connBtn {
+  position: relative;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-white);
+  transition: 0.5s;
+  border: 1px solid var(--color-purple);
+  padding: .5rem;
   border-radius: 5px;
   
+}
+.connBtn:hover {
+  border: 1px solid transparent;
+  background: var(--color-purple); 
+  cursor: pointer;
+}
+
+.landing,
+.connect-wallet,
+.mint-nft,
+.member-page {
+  flex-direction: column;
+  width: 960px;
+  max-width: calc(100% - 1rem);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin: auto;
+  align-content: center;
+  display: flex;
+  text-align: center;
 }
