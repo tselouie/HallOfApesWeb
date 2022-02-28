@@ -1,5 +1,8 @@
 :root {
   --color-purple:  #7a18ec;
+  --color-purple-secondary:#9F84B6;
+  --color-purple-tetriary:#FDE9FF;
+  --color-green-spot:#62BAAC;
 }
 
 img.circle {
@@ -92,16 +95,23 @@ section {
   scroll-snap-align:start;
 }
 .two {
-  background:orange;
+  background:var(--color-purple-secondary);
 }
 
 .three {
-  background:palegreen;
+  background:var(--color-purple-tetriary);
   display:flex;
+  text-align: center;
+  align-items:center;
+  justify-content: center;
+  flex-direction: column;
 }
 .roadMap{
   width:75vw;
   min-height:40vh;
 }
-
+.collectionTitle{
+  margin-bottom:1rem;
+  font-size: 2em;
+}
 
