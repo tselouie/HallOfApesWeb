@@ -3,6 +3,7 @@ import { ethers } from "ethers";
 import abi from "./utils/HOA.json";
 import "./App.css";
 import Carousel from "./Carousel";
+import Footer from "./Footer";
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
@@ -186,13 +187,18 @@ const App = () => {
           )}
         </div>
       </section>
-      <section className="two">
+      {currentAccount ? (<div><section className="two">
         <img className="roadMap" src="./BizziesNFT_2022_Roadmap.png"></img>
       </section>
       <section className="three" aria-label="Gallery">
-        {/* <h1>Apes</h1> */}
+        <div className="collectionTitle">
+          <h1>Bizzies Collection</h1>
+        </div>
+        
             <Carousel/>
-      </section>
+      </section> </div>) : null}
+  
+      <Footer/>
     </div>
   );
 };
