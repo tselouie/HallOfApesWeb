@@ -187,7 +187,7 @@ const App = () => {
           )}
         </div>
       </section>
-      {currentAccount ? (<div><section className="two">
+      {!currentAccount ? (<div><section className="two">
         <img className="roadMap" src="./BizziesNFT_2022_Roadmap.png" alt="roadmap"></img>
       </section>
       <section className="three" aria-label="Gallery">
