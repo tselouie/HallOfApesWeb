@@ -1,18 +1,18 @@
-import React, { useEffect, useState, useRef } from "react";
-import { ethers } from "ethers";
-import abi from "./utils/HOA.json";
+import React, { useEffect, useState } from "react";
+// import { ethers } from "ethers";
+// import abi from "./utils/HOA.json";
 import "./App.css";
 import Carousel from "./Carousel";
 import Footer from "./Footer";
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
-  const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
+  //const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
   const [isClaiming, setIsClaiming] = useState(false);
 
-  const contractAddress = "0x14797D04C94558ab0DD0F76E52490eef2A4542B8";
-
-  const contractABI = abi.abi;
+  //UNCOMMENT WHEN deploying NFT Contract
+  // const contractAddress = "0x14797D04C94558ab0DD0F76E52490eef2A4542B8";
+  // const contractABI = abi.abi;
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -73,63 +73,63 @@ const App = () => {
     }
   };
 
-  const functionCall = async () => {
-    try {
-      const { ethereum } = window;
+  // const functionCall = async () => {
+  //   try {
+  //     const { ethereum } = window;
 
-      if (ethereum) {
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        const signer = provider.getSigner();
-        const HOAContract = new ethers.Contract(
-          contractAddress,
-          contractABI,
-          signer
-        );
+  //     if (ethereum) {
+  //       const provider = new ethers.providers.Web3Provider(ethereum);
+  //       const signer = provider.getSigner();
+  //       const HOAContract = new ethers.Contract(
+  //         contractAddress,
+  //         contractABI,
+  //         signer
+  //       );
 
-        let count = await HOAContract.getTotalWaves();
-        console.log("Retrieved total wave count...", count.toNumber());
-      } else {
-        console.log("Ethereum object doesn't exist!");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //       let count = await HOAContract.getTotalWaves();
+  //       console.log("Retrieved total wave count...", count.toNumber());
+  //     } else {
+  //       console.log("Ethereum object doesn't exist!");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   // Setup our listener.
-  const setupEventListener = async () => {
-    // Most of this looks the same as our function askContractToMintNft
-    try {
-      const { ethereum } = window;
+  // const setupEventListener = async () => {
+  //   // Most of this looks the same as our function askContractToMintNft
+  //   try {
+  //     const { ethereum } = window;
 
-      if (ethereum) {
-        // Same stuff again
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        const signer = provider.getSigner();
-        const connectedContract = new ethers.Contract(
-          contractAddress,
-          contractABI,
-          signer
-        );
+  //     if (ethereum) {
+  //       // Same stuff again
+  //       const provider = new ethers.providers.Web3Provider(ethereum);
+  //       const signer = provider.getSigner();
+  //       const connectedContract = new ethers.Contract(
+  //         contractAddress,
+  //         contractABI,
+  //         signer
+  //       );
 
-        // THIS IS THE MAGIC SAUCE.
-        // This will essentially "capture" our event when our contract throws it.
-        // If you're familiar with webhooks, it's very similar to that!
-        connectedContract.on("NewEpicNFTMinted", (from, tokenId) => {
-          console.log(from, tokenId.toNumber());
-          alert(
-            `Hey there! We've minted your NFT and sent it to your wallet. It may be blank right now. It can take a max of 10 min to show up on OpenSea. Here's the link: https://testnets.opensea.io/assets/${contractAddress}/${tokenId.toNumber()}`
-          );
-        });
+  //       // THIS IS THE MAGIC SAUCE.
+  //       // This will essentially "capture" our event when our contract throws it.
+  //       // If you're familiar with webhooks, it's very similar to that!
+  //       connectedContract.on("NewEpicNFTMinted", (from, tokenId) => {
+  //         console.log(from, tokenId.toNumber());
+  //         alert(
+  //           `Hey there! We've minted your NFT and sent it to your wallet. It may be blank right now. It can take a max of 10 min to show up on OpenSea. Here's the link: https://testnets.opensea.io/assets/${contractAddress}/${tokenId.toNumber()}`
+  //         );
+  //       });
 
-        console.log("Setup event listener!");
-      } else {
-        console.log("Ethereum object doesn't exist!");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //       console.log("Setup event listener!");
+  //     } else {
+  //       console.log("Ethereum object doesn't exist!");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const mintNft = async () => {
     // try {
@@ -166,7 +166,7 @@ const App = () => {
       <section className="one">
         <div className="dataContainer">
           <span className="center">
-            <img className="circle" src="/android-chrome-192x192.png" />
+            <img className="circle" src="/android-chrome-192x192.png" alt="logo" />
           </span>
           <div className="header">Hall Of Apes</div>
           {!currentAccount ? (
@@ -188,7 +188,7 @@ const App = () => {
         </div>
       </section>
       {currentAccount ? (<div><section className="two">
-        <img className="roadMap" src="./BizziesNFT_2022_Roadmap.png"></img>
+        <img className="roadMap" src="./BizziesNFT_2022_Roadmap.png" alt="roadmap"></img>
       </section>
       <section className="three" aria-label="Gallery">
         <div className="collectionTitle">
